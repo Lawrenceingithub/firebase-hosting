@@ -9,7 +9,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" exact element={<Auth />}/>
-          <Route path="ExpenseTracker" exact element={<ExpenseTracker />}/>
+          <Route path="expense-tracker" exact element={<ExpenseTracker />}/>
         </Routes>
       </Router>
     </div>
