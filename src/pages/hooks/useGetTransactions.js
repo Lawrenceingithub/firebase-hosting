@@ -19,7 +19,7 @@ export const useGetTransactions = () => {
     try {
       const queryTransactions = query(
         transactionCollectionRef,
-        where("userID", "==", userID),
+/*         where("userID", "==", userID), */
         orderBy("createdAt")
       );
 

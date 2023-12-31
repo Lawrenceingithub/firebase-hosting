@@ -17,11 +17,11 @@ export const Auth = () => {
       isAuth: true,
     };
     localStorage.setItem("auth", JSON.stringify(authInfo));
-    navigate("/expense-tracker");
+    navigate("/home");
   };
 
   if (userInfo.isAuth) {
-    return <Navigate to="/expense-tracker" />;
+    return <Navigate to="/home" />;
   } else {
     return (
       <div className="login-page">

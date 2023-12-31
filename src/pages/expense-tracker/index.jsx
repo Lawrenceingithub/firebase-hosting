@@ -16,7 +16,7 @@ export const ExpenseTracker = () => {
   const [transactionAmount, setTransactionAmount] = useState(0);
   const [transactionType, setTransactionType] = useState("expense");
 
-  const {balance, expenses, income} = transactionTotals;
+  const { balance, expenses, income } = transactionTotals;
 
   const navigate = useNavigate();
 
@@ -29,21 +29,20 @@ export const ExpenseTracker = () => {
     });
   };
 
-  const signUserOut = async () =>{
+  const signUserOut = async () => {
     try {
       await signOut(auth);
       localStorage.clear();
       navigate("/");
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <>
       <div className="expense-tracker">
         <div className="container">
-          <h1>{name}'s ExpenseTracker</h1>
           <div className="balance">
             <h3> Your balance</h3>
             <h2>${balance}</h2>
@@ -94,8 +93,7 @@ export const ExpenseTracker = () => {
 
         {profilePhoto && (
           <div className="profile">
-            <img className="profile-photo" src={profilePhoto}></img>
-            <button className="signn-out-btn" onClick={signUserOut}>
+            <button className="sign-out-button" onClick={signUserOut}>
               SIGN OUT
             </button>
           </div>
@@ -126,6 +124,13 @@ export const ExpenseTracker = () => {
           })}
         </ul>
       </div>
+        <button className="return-button"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          返回
+        </button>
     </>
   );
 };
