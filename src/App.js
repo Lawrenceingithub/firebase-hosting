@@ -2,7 +2,7 @@ import { HashRouter as Router, Route, Routes} from 'react-router-dom';
 import { Auth } from './pages/auth/index';
 import { ExpenseTracker } from './pages/expense-tracker';
 import { Home } from './pages/home';
-import { Ingredient } from './pages/ingredient';
+import { IngredientTracker } from './pages/ingredient';
 import './App.css';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
           <Route path="/home" exact element={<Home />}/>
           <Route path="/" exact element={<Auth />}/>
           <Route path="/expense-tracker" exact element={<ExpenseTracker />}/>
-          <Route path="/ingredientpage" exact element= {<Ingredient />}/>
+          <Route path="/ingredient-tracker" exact element= {<IngredientTracker />}/>
         </Routes>
       </Router>
     </div>

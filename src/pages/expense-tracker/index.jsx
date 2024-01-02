@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { useAddTransaction } from "../hooks/useAddTransaction";
 import { useGetTransactions } from "../hooks/useGetTransactions";
-import { useGetUserInfo } from "../hooks/useGetUserInfo";
 import "./style.css";
-import { signOut } from "firebase/auth";
+
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../config/firebase-config";
 
 export const ExpenseTracker = () => {
   const { addTransaction } = useAddTransaction();
   const { transactions, transactionTotals } = useGetTransactions();
-  const { name, profilePhoto } = useGetUserInfo();
 
   const [description, setDescription] = useState("");
   const [transactionAmount, setTransactionAmount] = useState(0);
@@ -29,16 +26,6 @@ export const ExpenseTracker = () => {
     });
   };
 
-  const signUserOut = async () => {
-    try {
-      await signOut(auth);
-      localStorage.clear();
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <>
       <div className="expense-tracker">
@@ -47,6 +34,7 @@ export const ExpenseTracker = () => {
             <h3> Your balance</h3>
             <h2>${balance}</h2>
           </div>
+
           <div className="summary">
             <div className="income">
               <h4>Income</h4>
@@ -90,14 +78,6 @@ export const ExpenseTracker = () => {
             <button type="submit">Add Transition</button>
           </form>
         </div>
-
-        {profilePhoto && (
-          <div className="profile">
-            <button className="sign-out-button" onClick={signUserOut}>
-              SIGN OUT
-            </button>
-          </div>
-        )}
       </div>
       <div className="transactions">
         <h3>Transactions</h3>
@@ -124,13 +104,15 @@ export const ExpenseTracker = () => {
           })}
         </ul>
       </div>
-        <button className="return-button"
+      <div className="expense-return-button">
+        <button
           onClick={() => {
             navigate("/");
           }}
         >
           返回
         </button>
+      </div>
     </>
   );
 };
