@@ -30,18 +30,19 @@ export const ExpenseTracker = () => {
     <>
       <div className="expense-tracker">
         <div className="container">
+          <h1>支出計算器</h1>
           <div className="balance">
-            <h3> Your balance</h3>
+            <h3> 餘額</h3>
             <h2>${balance}</h2>
           </div>
 
           <div className="summary">
             <div className="income">
-              <h4>Income</h4>
+              <h4>收入</h4>
               <p>${income}</p>
             </div>
             <div className="expenses">
-              <h4>Expenses</h4>
+              <h4>支出</h4>
               <p>${expenses}</p>
             </div>
           </div>
@@ -80,7 +81,7 @@ export const ExpenseTracker = () => {
         </div>
       </div>
       <div className="transactions">
-        <h3>Transactions</h3>
+        <h3>交易記錄</h3>
         <ul>
           {transactions.map((transaction) => {
             const { description, transactionAmount, transactionType } =

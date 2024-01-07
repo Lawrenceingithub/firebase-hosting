@@ -19,7 +19,7 @@ export const Home = () => {
 
   return (
     <div className="homepage-container">
-      <h1>Home Page</h1>
+      <h1>控制器</h1>
       <div className="homepage">
         <Link to="/expense-tracker">支出計算器</Link>
         <br /> <Link to="/ingredient-tracker">材料增加器</Link>
